@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 
-test('radio buttons', async ({ page }) => {
+test('radio buttons test', async ({ page }) => {
     await page.goto('/');
     await page.getByText('Forms').click();
     await page.getByText('Form Layouts').click();
