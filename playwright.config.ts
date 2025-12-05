@@ -13,6 +13,14 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
 
   reporter: [
+     process.env.CI ? ["dot"] : ["list"],
+      [
+      "@argos-ci/playwright/reporter",
+      {
+        // Upload to Argos on CI only.
+        uploadToArgos: !!process.env.CI,
+      },
+    ]
     //['junit', { outputFile: 'test-results/junit.xml'}],
     //['allure-playwright'],
     ['html'],
@@ -22,6 +30,7 @@ export default defineConfig({
 
     baseURL: 'http://localhost:4200/',
     trace: 'on-first-retry',
+    screenshot: 'only-on-failure',
     video: {
       mode: 'off',
       size: {width: 1920, height: 1080}

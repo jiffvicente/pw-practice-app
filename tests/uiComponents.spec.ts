@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { argosScreenshot } from "@argos-ci/playwright";
 
 
 test('radio buttons testing', async ({ page }) => {
@@ -16,4 +17,5 @@ test('radio buttons testing', async ({ page }) => {
    await usingTheGridForm.getByRole('radio', { name: 'Option 2' }).check({force: true});
    await expect(usingTheGridForm.getByRole('radio', { name: 'Option 2' })).toBeChecked();
    await expect(usingTheGridForm.getByRole('radio', { name: 'Option 1' })).not.toBeChecked();
+   await argosScreenshot(page, 'usingTheGridForm');
 });
