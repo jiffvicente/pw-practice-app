@@ -13,17 +13,17 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
 
   reporter: [
-     process.env.CI ? ["dot"] : ["list"],
-      [
-      "@argos-ci/playwright/reporter",
+    process.env.CI ? 'dot' : 'list',
+    [
+      '@argos-ci/playwright/reporter',
       {
         // Upload to Argos on CI only.
         uploadToArgos: !!process.env.CI,
       },
-    ]
+    ],
     //['junit', { outputFile: 'test-results/junit.xml'}],
     //['allure-playwright'],
-    ['html'],
+    'html',
   ],
 
   use: {
