@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 import { argosScreenshot } from "@argos-ci/playwright";
 
 
-test('radio buttons testing', async ({ page }) => {
+test('radio buttons testing 2', async ({ page }) => {
     await page.goto('/');
     await page.getByText('Forms').click();
     await page.getByText('Form Layouts').click();
