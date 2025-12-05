@@ -13,7 +13,7 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
 
   reporter: [
-    process.env.CI ? 'dot' : 'list',
+    [process.env.CI ? 'dot' : 'list'],
     [
       '@argos-ci/playwright/reporter',
       {
@@ -23,7 +23,8 @@ export default defineConfig({
     ],
     //['junit', { outputFile: 'test-results/junit.xml'}],
     //['allure-playwright'],
-    'html',
+    ['html'],
+
   ],
 
   use: {
